@@ -13,7 +13,6 @@ const ApplePayDemo = () => {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    // Check if Apple Pay is available
     if (window.ApplePaySession) {
       const canMakePayments = ApplePaySession.canMakePayments();
       setIsApplePayAvailable(canMakePayments);
@@ -48,7 +47,6 @@ const ApplePayDemo = () => {
     };
 
     try {
-      // Try to use the highest supported version
       let version = 3;
       if (ApplePaySession.supportsVersion && ApplePaySession.supportsVersion(6)) {
         version = 6;
@@ -68,7 +66,6 @@ const ApplePayDemo = () => {
         setStatus('Payment method selected');
         console.log('Payment method:', event.paymentMethod);
         
-        // Update totals if needed
         const update = {
           newTotal: paymentRequest.total,
         };
@@ -79,7 +76,6 @@ const ApplePayDemo = () => {
         setStatus('Payment authorized! Processing...');
         console.log('Payment token:', event.payment.token);
         
-        // In production, send the payment token to your server for processing
         setTimeout(() => {
           session.completePayment(ApplePaySession.STATUS_SUCCESS);
           setStatus('Payment completed successfully!');
@@ -91,7 +87,6 @@ const ApplePayDemo = () => {
         console.log('Payment cancelled');
       };
 
-      // Start the Apple Pay session
       session.begin();
       setStatus('Starting Apple Pay...');
 
@@ -103,7 +98,6 @@ const ApplePayDemo = () => {
 
   return (
     <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
-      {/* Apple Pay Button */}
       {isApplePayAvailable ? (
         <button
           onClick={handleApplePayClick}

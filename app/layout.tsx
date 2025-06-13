@@ -17,7 +17,6 @@ export default function RootLayout({
         defer
         src="https://analytics.xyspg.moe/script.js"
         data-website-id="ddecac37-8e28-4c02-95ab-e132aa4f6dcc"
-        data-host-url="https://paytrumpcard.vercel.app"
       />
       <html lang="en">
         <body className={`antialiased`}>{children}</body>
