@@ -40,7 +40,7 @@ const ApplePayDemo = () => {
       merchantCapabilities: ['supports3DS'],
       total: {
         label: 'Trump Gold Card',
-        amount: '50000000',
+        amount: '5000000',
         type: 'final'
       },
 
